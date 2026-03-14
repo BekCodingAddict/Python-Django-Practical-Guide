@@ -2,5 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 # Create your views here.
-def index(request, *args, **kwargs):
-	return HttpResponse("Hello, world. You're at the challanges index.")
+def january(request, *args, **kwargs):
+	return HttpResponse("This is January challange.")
+
+def february(request, *args, **kwargs):
+	return HttpResponse("This is February challange.")
