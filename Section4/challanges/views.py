@@ -15,7 +15,7 @@ challanges = {
 	"september": "This is September challange.",
 	"october": "This is October challange.",
 	"november": "This is November challange.",
-	"december": "This is December challange."
+	"december": ""
 }
 
 # Create your views here.
