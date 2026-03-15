@@ -19,24 +19,12 @@ challanges = {
 }
 
 # Create your views here.
-def index	(request, *args, **kwargs):
-	html_="""
-	<ul>
-		<li><a href="/challanges/january">January</a></li>
-		<li><a href="/challanges/february">February</a></li>
-		<li><a href="/challanges/march">March</a></li>
-		<li><a href="/challanges/april">April</a></li>
-		<li><a href="/challanges/may">May</a></li>
-		<li><a href="/challanges/june">June</a></li>
-		<li><a href="/challanges/july">July</a></li>
-		<li><a href="/challanges/august">August</a></li>
-		<li><a href="/challanges/september">September</a></li>
-		<li><a href="/challanges/october">October</a></li>
-		<li><a href="/challanges/november">November</a></li>
-		<li><a href="/challanges/december">December</a></li>
-	</ul>
-	"""
-	return HttpResponse(html_)
+def index(request, *args, **kwargs):
+	months = list(challanges.keys())
+	context = {
+		"months": months
+	}
+	return render(request, "chellanges/index.html", context)
 
 
 def monthly_challange(request, month, *args, **kwargs):
