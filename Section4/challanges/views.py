@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse,Http404,HttpResponseNotFound,HttpResponseRedirect
 from django.urls import reverse
+from django.template.loader import render_to_string
 
 challanges = {
 	"january": "This is January challange.",
@@ -40,11 +41,15 @@ def index	(request, *args, **kwargs):
 
 def monthly_challange(request, month, *args, **kwargs):
 	challange_text = challanges.get(month, None)
+	context = {
+		"month": month,
+		"challange": challange_text
+		}
 	if challange_text == None:
 		return HttpResponseNotFound("This month is not supported.")
 	else:
-		return HttpResponse(challange_text)
-	
+		return render(request, "chellanges/challange.html", context)
+
 def monthly_challange_by_number(request, month, *args, **kwargs):
 	months = list(challanges.keys())
 	if month > len(months):
