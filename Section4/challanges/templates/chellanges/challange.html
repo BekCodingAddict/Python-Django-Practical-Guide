@@ -3,7 +3,7 @@
 {% block title %}{{ month|capfirst }} Challenge{% endblock %}
 <!-- prettier-ignore -->
 {% block content %}
-
+{% include "./snippets/header.html" %}
 <h1>This is {{ month|capfirst }} challenge.</h1>
 {% if challange %}
 <p>{{ challange }}</p>
