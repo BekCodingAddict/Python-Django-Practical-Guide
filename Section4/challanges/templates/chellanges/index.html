@@ -1,12 +1,27 @@
 <!-- prettier-ignore -->
-{% extends "base.html" %} 
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'challanges/challanges.css' %}" />
+{% endblock %}
+<!-- prettier-ignore -->
 {% block title %}All Challenges{% endblock %}
 <!-- prettier-ignore -->
 {% block content %}
-<h1>All Challenges</h1>
-<ul>
-	{% for month in months %}
-	<li><a href="{% url 'monthly-challange' month=month %}">{{ month|capfirst }}</a></li>
-	{% endfor %}
-</ul>
+<div class="min-h-screen bg-gradient-to-br from-indigo-50 to-cyan-50 py-12 px-4">
+	<div class="max-w-4xl mx-auto">
+		<h1 class="text-4xl font-extrabold text-center text-indigo-900 mb-10">Monthly Challenges</h1>
+		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+			{% for month in months %}
+			<a
+				href="{% url 'monthly-challange' month %}"
+				class="group block bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-100 hover:border-indigo-300 hover:-translate-y-1 px-8 py-6"
+			>
+				<h2 class="text-xl font-semibold text-gray-800 group-hover:text-indigo-600 transition-colors">{{ month|capfirst }}</h2>
+				<p class="mt-2 text-sm text-gray-500">View challenge &rarr;</p>
+			</a>
+			{% endfor %}
+		</div>
+	</div>
+</div>
 {% endblock %}
