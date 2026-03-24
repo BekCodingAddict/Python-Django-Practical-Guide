@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+<article class="max-w-3xl mx-auto px-4 py-16">
+	<a href="{% url 'posts' %}" class="text-blue-600 hover:underline mb-6 inline-block">&larr; Back to All Posts</a>
+
+	<div class="bg-white rounded-xl shadow-md overflow-hidden">
+		<div class="h-64 bg-gradient-to-br from-blue-200 to-indigo-200 flex items-center justify-center">
+			<span class="text-7xl">📝</span>
+		</div>
+		<div class="p-8">
+			<p class="text-sm text-blue-600 font-medium mb-2">{{ post.date }} &middot; By {{ post.author }}</p>
+			<h1 class="text-4xl font-extrabold text-gray-900 mb-6">{{ post.title }}</h1>
+			<div class="prose prose-lg text-gray-700 leading-relaxed">
+				<p>{{ post.content }}</p>
+			</div>
+		</div>
+	</div>
+</article>
+{% endblock %}
