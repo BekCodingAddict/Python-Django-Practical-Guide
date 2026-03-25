@@ -33,12 +33,14 @@ all_posts = [
 
 
 def home(request):
-	latest_posts = all_posts[:3]
+	sorted_posts= sorted(all_posts, key=get_date, reverse=True)
+	latest_posts = sorted_posts[-3:]
 	return render(request, 'blog/index.html', {"posts": latest_posts})
 
 
 def posts(request):
-	return render(request, 'blog/all_posts.html', {"posts": all_posts})
+	sorted_posts=sorted(all_posts,key=get_date,reverse=True)
+	return render(request, 'blog/all_posts.html', {"posts": sorted_posts})
 
 
 def post_detail(request, slug):
@@ -46,3 +48,10 @@ def post_detail(request, slug):
 	if post is None:
 		raise Http404("Post not found")
 	return render(request, 'blog/post_detail.html', {"post": post})
+
+def get_date(post):
+	return post["date"]
+
+
+def page_not_found(request, exception):
+	return render(request, '404.html', status=404)

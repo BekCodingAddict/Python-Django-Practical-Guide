@@ -19,7 +19,8 @@
 		{% for post in posts %}
 		<article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
 			<div class="h-48 bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center">
-				<span class="text-5xl">📝</span>
+				<img src="{% static 'blog/images/'|add:post.image %}" alt="{{ post.title }}" class="w-full h-full object-cover" />
+				{% comment %}<span class="text-5xl">📝</span>{% endcomment %}
 			</div>
 			<div class="p-6">
 				<p class="text-sm text-blue-600 font-medium mb-2">{{ post.date }}</p>
