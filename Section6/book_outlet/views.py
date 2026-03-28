@@ -10,12 +10,12 @@ def index(request):
 	}
 	return render(request,"book_outlet/index.html",context)
 
-def book_details(request,id):
+def book_details(request,slug):
 	#try:
 	#	book=Book.objects.get(id=id)
 	#except:
 	#	raise Http404()
-	book=get_object_or_404(Book,id=id)
+	book=get_object_or_404(Book,slug=slug)
 	context={
 	"id":book.id,
 	"title":book.title,
