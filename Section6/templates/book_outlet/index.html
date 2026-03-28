@@ -1,0 +1,11 @@
+{% extends "book_outlet/base.html" %}
+<!-- ignore prettier -->
+{% block title %} All Books {% endblock%}
+<!-- ignore prettier -->
+{% block content %}
+<ul>
+	{% for book in books %}
+	<li>{{book.title}}</li>
+	{% endfor %}
+</ul>
+{% endblock %}
