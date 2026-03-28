@@ -17,6 +17,7 @@ def book_details(request,id):
 	#	raise Http404()
 	book=get_object_or_404(Book,id=id)
 	context={
+	"id":book.id,
 	"title":book.title,
 	"rating":book.rating,
 	"is_bestseller":book.is_bestselling,
