@@ -6,6 +6,9 @@ from django.db.models import Avg
 
 def index(request):
 	books=Book.objects.all().order_by("-title")
+	for book in books:
+		print(book.get_absolute_url())
+		#print(book.title)
 	context={
 		"books":books,
 		"total_books":books.count(),
