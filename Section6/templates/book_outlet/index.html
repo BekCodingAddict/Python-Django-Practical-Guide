@@ -9,5 +9,9 @@
 		<a href="{{book.get_absolute_url}}">{{book.title}} by {{book.author}} - {{book.rating}}</a>
 	</li>
 	{% endfor %}
+
+	<hr>
+	<li>Total Books: {{total_books}}</li>
+	<li>Average Rating: {{average_rating}}</li>
 </ul>
 {% endblock %}
